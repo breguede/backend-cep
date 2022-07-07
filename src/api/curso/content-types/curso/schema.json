@@ -1,0 +1,120 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cursos",
+  "info": {
+    "singularName": "curso",
+    "pluralName": "cursos",
+    "displayName": "Cursos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "descricao": {
+      "type": "richtext",
+      "pluginOptions": {}
+    },
+    "cod_turma": {
+      "type": "integer",
+      "unique": true,
+      "pluginOptions": {}
+    },
+    "valor": {
+      "type": "float",
+      "pluginOptions": {}
+    },
+    "valor_desconto": {
+      "type": "float",
+      "pluginOptions": {}
+    },
+    "parcelas": {
+      "type": "integer",
+      "pluginOptions": {}
+    },
+    "img_thumb": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "img_banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "categoria_curso": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria-curso.categoria-curso",
+      "inversedBy": "cursos"
+    },
+    "professores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::professor.professor",
+      "inversedBy": "cursos"
+    },
+    "matricula": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::matricula.matricula",
+      "mappedBy": "curso"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nome"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ENCERRADO",
+        "INSCRIÇÕES ENCERRADAS",
+        "INICIADO",
+        "DATA ALTERADA",
+        "NOVO",
+        "CANCELADO",
+        "EXCLUSIVAMENTE ONLINE",
+        "ADIADA"
+      ]
+    },
+    "data_inicio": {
+      "type": "date"
+    },
+    "hora_inicio": {
+      "type": "time"
+    },
+    "rotulo": {
+      "type": "enumeration",
+      "enum": [
+        "com",
+        "docente",
+        "docentes",
+        "comentários de",
+        "coordenação",
+        "coordenação e comentários",
+        "debatedor",
+        "debatedores",
+        "equipe organizadora",
+        "organizadores",
+        "psicanalista convidada",
+        "psicanalista convidado",
+        "psicanalistas convidados",
+        "supervisores"
+      ]
+    }
+  }
+}

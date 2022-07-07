@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "professores",
+  "info": {
+    "singularName": "professor",
+    "pluralName": "professores",
+    "displayName": "Professor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Descricao": {
+      "type": "richtext"
+    },
+    "cursos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::curso.curso",
+      "mappedBy": "professores"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nome"
+    }
+  }
+}

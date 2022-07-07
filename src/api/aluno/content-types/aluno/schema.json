@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alunos",
+  "info": {
+    "singularName": "aluno",
+    "pluralName": "alunos",
+    "displayName": "Aluno"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "sexo": {
+      "type": "enumeration",
+      "enum": [
+        "Masculino",
+        "Feminino",
+        "Não especificado"
+      ],
+      "required": true,
+      "default": "Masculino"
+    },
+    "endereco": {
+      "type": "string"
+    },
+    "bairro": {
+      "type": "string"
+    },
+    "cidade": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "cep": {
+      "type": "string"
+    },
+    "cpf": {
+      "type": "string"
+    },
+    "nascimento": {
+      "type": "date"
+    },
+    "matricula": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::matricula.matricula",
+      "mappedBy": "aluno"
+    }
+  }
+}
